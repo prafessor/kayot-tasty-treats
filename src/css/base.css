@@ -3,6 +3,9 @@ body {
 
   color: #3b302b;
   font-family: Inter;
+
+  fill: none;
+  stroke: #3b302b;
 }
 
 body.dark-theme {
