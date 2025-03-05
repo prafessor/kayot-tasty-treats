@@ -1,7 +1,6 @@
-<header>
+<header class="drop-down-section">
 
   <div class="section">
-    <!-- клас секція. Використаю для анімації при завантаженні сторінки. Додати спуск вниз при завантаженні  -->
     <div class="container header-container">
 
       <nav class="header-nav">
@@ -12,14 +11,15 @@
       <a class="lodo" href="./index.html"><span class="logo-span">tasty</span>treats.</a>
 
       <div class="header-svg-container">
-        <button class="header-svg-button">
+        
+        <button class="header-svg-button" type="button" aria-label="Order now">
             <svg class="icon-shopping-cart">
               <use href="./img/sprite.svg#icon-shopping-cart">
               </use>
             </svg>
         </button>
 
-        <button class="header-svg-button">
+        <button class="header-svg-button" type="button" aria-label="Menu">
           <svg class="icon-align-justify">
             <use href="./img/sprite.svg#icon-align-justify">
             </use>
@@ -32,7 +32,51 @@
       </div>
 
     </div>
+  </div>
 
+<!-- векню меню для мобільних пристроїв -->
+  <div class="header-modal-window">
+
+    <svg class="header-icon-x">
+      <use href="./img/sprite.svg#icon-x"></use>
+    </svg>
+
+    <nav class="header-modal-nav">
+      <a class="header-modal-nav-home" href="./index.html">Home</a>
+      <a class="header-modal-nav-favorites" href="./favorites.html">Favorites</a>
+    </nav>
+
+    <div class="header-modal-icon-change-color">
+      <div class="header-modal-icon-change-color-circle"></div>
+    </div>
+
+  </div>
+
+<!-- векню order-now -->
+  <div class="order-now order-now-is-open">
+    <form class="order-now-form order-now-form-is-open">
+
+      <svg class="order-now-icon-x">
+        <use href="./img/sprite.svg#icon-x"></use>
+      </svg>
+
+      <h2 class="order-now-title">Order now</h2>
+
+      <label class="order-now-label" for="username">Name</label>
+      <input class="order-now-input" id="username" type="text" name="username" autofocus placeholder="Enter your name"/>
+
+      <label class="order-now-label" for="phone-number">Phone number</label>
+      <input class="order-now-input" id="phone-number" type="tel" name="phone-number" />
+
+      <label class="order-now-label" for="header-email">Email</label>
+      <input class="order-now-input" id="header-email" type="email" name="email" placeholder="Enter your email" />
+
+      <label class="order-now-label" for="textarea">Comment</label>
+      <textarea class="order-now-textarea" id="textarea" name="textarea"></textarea>
+
+      <button class="order-now-button" type="submit">Send</button>
+
+    </form>
   </div>
 
 </header>
