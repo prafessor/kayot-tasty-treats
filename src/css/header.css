@@ -23,7 +23,7 @@
     text-align: center;
 }
 .logo-span {
-    color: #a47764;
+    color: #A47764;
 }
 
 .header-svg-container {
@@ -55,7 +55,7 @@
 .icon-align-justify:hover,
 .icon-shopping-cart:focus,
 .icon-align-justify:focus {
-    stroke: #a47764;
+    stroke: #A47764;
 }
 
 .header-nav, 
@@ -106,11 +106,11 @@
 .header-nav-favorites:hover,
 .header-nav-home:focus,
 .header-nav-favorites:focus {
-    color: #a47764;
+    color: #A47764;
 }
 
 .header-nav a.header-nav-active {
-    color: #a47764;
+    color: #A47764;
     font-weight: 500;
 }
 
@@ -156,7 +156,7 @@
 }
 
 .header-modal-window {
-    background-color: #a46464;
+    background-color: #A47764;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -220,7 +220,7 @@
     width: 46px;
     height: 20px;
     box-shadow: 1px 1px 2px 0 #3B302B;
-    background-image: linear-gradient(to left, #583d31, #42302800);
+    background-image: linear-gradient(to left, #42312a, #42302800);
     border: none;
     position: relative;
     display: flex;
@@ -244,7 +244,6 @@
     left: 26.4px; 
 } 
 
-
 /*=========================================форма  order-now =============================*/
 .order-now {
     width: 100vw;
@@ -253,18 +252,18 @@
     top: 0;
     left: 0;
     z-index: 1000;
-    background-color: #000000ab;
+    background-image: linear-gradient(to top, #332620,#3326208c);
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 1;
-    pointer-events: auto;
+    opacity: 0;
+    pointer-events: none;
     transition: opacity 0.5s ease-in-out; 
 }
 
 .order-now.order-now-is-open{
-    opacity: 0;
-    pointer-events: none;
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .order-now-form {
@@ -278,12 +277,12 @@
     border-radius: 15px;
     position: relative;
     overflow: auto;
-    transform: scale(1); 
+    transform: scale(0); 
     transition: transform 0.5s ease-in-out;
 }
 
 .order-now-form.order-now-form-is-open {
-    transform: scale(0);
+    transform: scale(1);
 }
 
 
@@ -329,6 +328,7 @@
     max-height: 48px;  
     margin-bottom: 18px;
     outline: none;
+    background-color: transparent;
 }
 
 .invalid {
@@ -346,6 +346,7 @@
     height: 100px;
     margin-bottom: 40px;
     resize: none;
+    background-color: transparent;
 }
 
 .order-now-input:hover,
@@ -370,6 +371,6 @@
 }
 
 .order-now-button:hover {
-color: #3b302b;
-background: #a47764c4;
+    color: #3b302b;
+    background: #a47764c4;
 }
