@@ -20,16 +20,15 @@ import 'izitoast/dist/css/iziToast.min.css';
 const burger = document.querySelector(".icon-align-justify");
 const headerModalWindow = document.querySelector(".header-modal-window");
 const iconX = document.querySelector(".header-icon-x");
-const body = document.querySelector('body');
 
 burger.addEventListener("click", () => {
   headerModalWindow.classList.add('header-modal-window-active'); 
-  body.classList.add('no-scroll');
+  document.body.classList.add('no-scroll');
 });
 
 iconX.addEventListener("click", () => {
   headerModalWindow.classList.remove('header-modal-window-active');
-  body.classList.remove('no-scroll'); 
+  document.body.classList.remove('no-scroll'); 
 });
 
 //  ==============================відкриття order-now===========================
@@ -37,13 +36,12 @@ iconX.addEventListener("click", () => {
 const shoppingCart = document.querySelector(".icon-shopping-cart");
 const orderNowIconX = document.querySelector(".order-now-icon-x");
 const orderNow = document.querySelector(".order-now");
-const orderNowform = document.querySelector("form.order-now-form");
+const orderNowform = document.querySelector(".order-now-form");
 
 
 shoppingCart.addEventListener("click", () => {
   orderNow.classList.add('order-now-is-open'); 
-  orderNowform.classList.add('order-now-form-is-open'); 
-  body.classList.add('no-scroll');
+  document.body.classList.add('no-scroll');
 
   window.addEventListener('click', closeModal);
   window.addEventListener('keydown', closeFormByEsc);
@@ -51,8 +49,7 @@ shoppingCart.addEventListener("click", () => {
 
 orderNowIconX.addEventListener("click", () => {
   orderNow.classList.remove('order-now-is-open'); 
-  orderNowform.classList.remove('order-now-form-is-open'); 
-  body.classList.remove ('no-scroll');
+  document.body.classList.remove ('no-scroll');
 
   window.removeEventListener('click', closeModal);
   window.removeEventListener('keydown', closeFormByEsc);
@@ -61,10 +58,12 @@ orderNowIconX.addEventListener("click", () => {
 //  ==============================закриття order-now по кліку на сірий фон===========================
 
 const closeModal = event => {
-  if (orderNow.contains(event.target) && !orderNowform.contains(event.target) ) {
+  const isClickOutside = orderNow.contains(event.target) && !orderNowform.contains(event.target);
+  const isEscapeKey = event.code === 'Escape';
+
+  if (isClickOutside || isEscapeKey) {
     orderNow.classList.remove('order-now-is-open'); 
-    orderNowform.classList.remove('order-now-form-is-open'); 
-    body.classList.remove ('no-scroll');
+    document.body.classList.remove ('no-scroll');
     
     window.removeEventListener('click', closeModal);
     window.removeEventListener('keydown', closeFormByEsc);
@@ -77,8 +76,7 @@ const closeModal = event => {
 function closeFormByEsc (event) {
   if (event.code === 'Escape') {
     orderNow.classList.remove('order-now-is-open'); 
-    orderNowform.classList.remove('order-now-form-is-open'); 
-    body.classList.remove ('no-scroll');
+    document.body.classList.remove ('no-scroll');
   
     window.removeEventListener('click', closeModal);
     window.removeEventListener('keydown', closeFormByEsc);
@@ -132,8 +130,7 @@ orderNowform.addEventListener("submit", (event) => {
     });
 
     orderNow.classList.remove('order-now-is-open'); 
-    orderNowform.classList.remove('order-now-form-is-open'); 
-    body.classList.remove ('no-scroll');
+    document.body.classList.remove ('no-scroll');
     nameInput.classList.remove('invalid');  
     phoneInput.classList.remove('invalid');
     emailInput.classList.remove('invalid');
@@ -153,34 +150,35 @@ function showError(message) {
 
 //  =================отримування інформації для order-now з локального сховища користувача===============
 
-orderNowform.addEventListener ('change', remebInfoLS);
+orderNowform.addEventListener ('change', remembInfoLS);
 
-let formInfo = {
+let formInfo = JSON.parse(localStorage.getItem(`feedback-form`)) || {
   name: '',
   number: '',
   email: '',
   textarea: '',
 };
-
-function remebInfoLS (event) {
+function remembInfoLS (event) {
   const valueInfo = event.target.value;
   const valueInfoName = event.target.name; 
   formInfo[valueInfoName]=valueInfo;
-  localStorage.setItem(`feedback-form`, JSON.stringify(formInfo))
+  try {
+    localStorage.setItem(`feedback-form`, JSON.stringify(formInfo));
+  } catch (error) {
+    console.error("Error saving data to localStorage", error);
+  }
 };
 
 function returnInfoLS (){
 try {
   if (localStorage.length ===0) {return;}
   const getInfo = JSON.parse(localStorage.getItem(`feedback-form`))
-  formInfo=getInfo;
   for (const key in getInfo) {orderNowform.elements[key].value = getInfo[key]} 
 } 
 catch (er) {console.log(er);}
 };
 
 returnInfoLS ();
-
 
 //   ==============================перемикання теми основна іконка ==================================
 

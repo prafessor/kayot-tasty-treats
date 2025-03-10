@@ -5,11 +5,8 @@
     animation: slideDown 500ms ease-out forwards; /* Застосовуємо анімацію */
 }
   
-.section {
-    padding-top: 20px;
-}
-
 .header-container {
+    padding-top: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -66,10 +63,143 @@
     display: none;
 }
 
+
+
+
+/*=========================================форма  order-now =============================*/
+.order-now {
+    width: 100vw;
+    height: 100vh; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-image: linear-gradient(to top, #332620,#3326208c);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out; 
+}
+
+.order-now.order-now-is-open{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.order-now-form {
+    background-color: #F8F8F8;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 28px 20px;
+    width: 335px;
+    max-height: 582px;
+    border-radius: 15px;
+    position: relative;
+    overflow: auto;
+    transform: scale(0); 
+    transition: transform 0.5s ease-in-out;
+}
+
+.order-now.order-now-is-open .order-now-form {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.order-now-icon-x {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.5s ease-in-out, stroke 0.5s ease-in-out; 
+    cursor: pointer;
+    stroke: #3B302B;
+    transform-origin: center;
+    position: absolute;
+    top: 14px;
+    right: 14px;
+}
+
+.order-now-icon-x:hover {
+    transform: rotate(90deg);
+    stroke:  #A47764;
+}
+
+.order-now-title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.22;
+    text-transform: uppercase;
+    color: #3b302b;
+    margin-bottom: 28px;
+}
+
+.order-now-label {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.29;
+    color: rgba(59, 48, 43, 0.7);
+    margin-bottom: 8px;
+}
+
+.order-now-input {
+    border: 1px solid rgba(164, 119, 100, 0.6);
+    border-radius: 15px;
+    padding: 14px 18px;
+    width: 295px;
+    max-height: 46px;  
+    margin-bottom: 16px;
+    outline: none;
+    background-color: transparent;
+}
+
+.invalid {
+    border: 1px solid rgb(170, 92, 92);  
+    background-color: #f8d7daad;  
+}
+
+.order-now-textarea{
+    border: 1px solid rgba(164, 119, 100, 0.6);
+    border-radius: 15px;
+    padding: 14px 18px;
+    outline: none;
+    width: 295px;
+    height: 100px;
+    margin-bottom: 40px;
+    resize: none;
+    background-color: transparent;
+}
+
+.order-now-input:hover,
+.order-now-input:focus,
+.order-now-input:active,
+.order-now-button:hover {
+    border: 1px solid #A47764;
+}
+
+
+.order-now-button {
+    border-radius: 15px;
+    padding: 15px 130px;
+    width: 295px;
+    height: 46px;
+    background: #a47764;
+    font-weight: 500;
+    font-size: 14px;
+    color: #f8f8f8;
+    outline: none;
+    border: none;
+}
+
+.order-now-button:hover {
+    color: #3b302b;
+    background: #a47764c4;
+}
+
 /* ================================планшет=======================================*/
 @media only screen and (min-width: 768px) {
 
-.section {
+.header-container {
     padding-top: 40px;
 }
 
@@ -142,9 +272,46 @@
 .clicked {
     left: 26.4px; 
 } 
+
+/* ===================форма для замовлення order-now =====================*/
+
+.order-now-form {
+    padding: 40px;
+    width: 440px;
+    max-height: 632px;
+}
+
+.order-now-icon-x {
+    width: 24px;
+    height: 24px;
+    top: 16px;
+    right: 16px;
+}
+
+.order-now-title {
+    margin-bottom: 40px;
+}
+
+.order-now-input {
+    width: 360px;
+    max-height: 48px;  
+    margin-bottom: 18px;
+}
+
+.order-now-textarea{
+    width: 360px;
+}
+
+.order-now-button {
+    padding: 16px 162px;
+    width: 360px;
+    height: 48px;
+}
+
 }
 
 @media only screen and (min-width: 1280px) {
+   
 }
 
 /*=========================================модальне вікно =============================*/
@@ -243,134 +410,3 @@
 .clicked {
     left: 26.4px; 
 } 
-
-/*=========================================форма  order-now =============================*/
-.order-now {
-    width: 100vw;
-    height: 100vh; 
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    background-image: linear-gradient(to top, #332620,#3326208c);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease-in-out; 
-}
-
-.order-now.order-now-is-open{
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.order-now-form {
-    background-color: #F8F8F8;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 40px;
-    width: 440px;
-    max-height: 632px;
-    border-radius: 15px;
-    position: relative;
-    overflow: auto;
-    transform: scale(0); 
-    transition: transform 0.5s ease-in-out;
-}
-
-.order-now-form.order-now-form-is-open {
-    transform: scale(1);
-}
-
-
-.order-now-icon-x {
-    width: 24px;
-    height: 24px;
-    transition: transform 0.5s ease-in-out, stroke 0.5s ease-in-out; 
-    cursor: pointer;
-    stroke: #3B302B;
-    transform-origin: center;
-    position: absolute;
-    top: 16px;
-    right: 16px;
-}
-
-.order-now-icon-x:hover {
-    transform: rotate(90deg);
-    stroke:  #A47764;
-}
-
-.order-now-title {
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 1.22;
-    text-transform: uppercase;
-    color: #3b302b;
-    margin-bottom: 40px;
-}
-
-.order-now-label {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.29;
-    color: rgba(59, 48, 43, 0.7);
-    margin-bottom: 8px;
-}
-
-.order-now-input {
-    border: 1px solid rgba(164, 119, 100, 0.6);
-    border-radius: 15px;
-    padding: 14px 18px;
-    width: 360px;
-    max-height: 48px;  
-    margin-bottom: 18px;
-    outline: none;
-    background-color: transparent;
-}
-
-.invalid {
-    border: 1px solid rgb(170, 92, 92);  
-    background-color: #f8d7daad;  
-}
-
-.order-now-textarea{
-    border: 1px solid rgba(164, 119, 100, 0.6);
-    border-radius: 15px;
-    padding: 14px 18px;
-    margin-bottom: 18px;
-    outline: none;
-    width: 360px;
-    height: 100px;
-    margin-bottom: 40px;
-    resize: none;
-    background-color: transparent;
-}
-
-.order-now-input:hover,
-.order-now-input:focus,
-.order-now-input:active,
-.order-now-button:hover {
-    border: 1px solid #A47764;
-}
-
-
-.order-now-button {
-    border-radius: 15px;
-    padding: 14px 162px;
-    width: 360px;
-    height: 48px;
-    background: #a47764;
-    font-weight: 500;
-    font-size: 14px;
-    color: #f8f8f8;
-    outline: none;
-    border: none;
-}
-
-.order-now-button:hover {
-    color: #3b302b;
-    background: #a47764c4;
-}
