@@ -6,20 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>tasty treats</title>
 
-    <link rel="stylesheet" href="node_modules/modern-normalize/modern-normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css" integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="/kayot-tasty-treats/assets/main-BvMtbKpA.js"></script>
-    <link rel="stylesheet" crossorigin href="/kayot-tasty-treats/assets/main-CCtMiw_F.css">
+    <script type="module" crossorigin src="/kayot-tasty-treats/assets/vendor-I1I71QQ2.js"></script>
+    <script type="module" crossorigin src="/kayot-tasty-treats/assets/main-CKaoOc83.js"></script>
+    <link rel="stylesheet" crossorigin href="/kayot-tasty-treats/assets/vendor-DnveWo0P.css">
+    <link rel="stylesheet" crossorigin href="/kayot-tasty-treats/assets/main-Cux7XDgO.css">
   </head>
   <body>
-    <header>
+    <header class="drop-down-section">
 
-  <div class="section">
-    <!-- клас секція. Використаю для анімації при завантаженні сторінки. Додати спуск вниз при завантаженні  -->
-    <div class="container header-container">
+  <div class="container header-container">
 
       <nav class="header-nav">
         <a class="header-nav-home" href="./index.html">Home</a>
@@ -29,14 +29,15 @@
       <a class="lodo" href="./index.html"><span class="logo-span">tasty</span>treats.</a>
 
       <div class="header-svg-container">
-        <button class="header-svg-button">
+        
+        <button class="header-svg-button" type="button" aria-label="Order now">
             <svg class="icon-shopping-cart">
               <use href="/kayot-tasty-treats/assets/sprite-f-s98VfX.svg#icon-shopping-cart">
               </use>
             </svg>
         </button>
 
-        <button class="header-svg-button">
+        <button class="header-svg-button" type="button" aria-label="Menu">
           <svg class="icon-align-justify">
             <use href="/kayot-tasty-treats/assets/sprite-f-s98VfX.svg#icon-align-justify">
             </use>
@@ -46,10 +47,54 @@
         <div class="icon-change-color">
           <div class="icon-change-color-circle"></div>
         </div>
+        
       </div>
 
+  </div>
+
+<!-- векню меню для мобільних пристроїв -->
+  <div class="header-modal-window">
+
+    <svg class="header-icon-x">
+      <use href="/kayot-tasty-treats/assets/sprite-f-s98VfX.svg#icon-x"></use>
+    </svg>
+
+    <nav class="header-modal-nav">
+      <a class="header-modal-nav-home" href="./index.html">Home</a>
+      <a class="header-modal-nav-favorites" href="./favorites.html">Favorites</a>
+    </nav>
+
+    <div class="header-modal-icon-change-color">
+      <div class="header-modal-icon-change-color-circle"></div>
     </div>
 
+  </div>
+
+<!-- векню order-now -->
+  <div class="order-now">
+    <form class="order-now-form">
+
+      <svg class="order-now-icon-x">
+        <use href="/kayot-tasty-treats/assets/sprite-f-s98VfX.svg#icon-x"></use>
+      </svg>
+
+      <h2 class="order-now-title">Order now</h2>
+
+      <label class="order-now-label" for="name">Name</label>
+      <input class="order-now-input" id="name" type="text" name="name" autofocus placeholder="Enter your name"/>
+
+      <label class="order-now-label" for="number">Phone number</label>
+      <input class="order-now-input" id="number" type="tel" name="number" placeholder="+380"/>
+
+      <label class="order-now-label" for="email">Email</label>
+      <input class="order-now-input" id="email" type="email" name="email" placeholder="Enter your email" />
+
+      <label class="order-now-label" for="textarea">Comment</label>
+      <textarea class="order-now-textarea" id="textarea" name="textarea"></textarea>
+
+      <button class="order-now-button" type="submit">Send</button>
+
+    </form>
   </div>
 
 </header>
