@@ -9,4 +9,27 @@
       opacity: 1; /* Кінцева прозорість */
     }
   }
+/* повільна поява секції хіроу на сторінці фейворітс при завантаженні сторінки */
+  @keyframes slideDownHero {
+    0% {
+      opacity: 0;
+      top: -100vh;
+    }
+    100% {
+      opacity: 1;
+      top: 0;
+    }
+  }
   
+/* Анімація для підстрибування кнопки, яка повертає користувача на верх сторінки*/
+@keyframes bounce {
+  0% {
+      transform: translateY(0) rotate(90deg); 
+  }
+  50% {
+      transform: translateY(-30px) rotate(90deg); 
+  }
+  100% {
+      transform: translateY(0) rotate(90deg); 
+  }
+}

@@ -9,6 +9,7 @@
 /* Sections style */
 @import url('./header.css');
 @import url('./hero.css');
+@import url('./hero-favorites.css');
 @import url('./categories.css');
 @import url('./catalog-favorites.css');
 @import url('./footer.css');
