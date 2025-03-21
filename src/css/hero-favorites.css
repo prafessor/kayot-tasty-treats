@@ -1,5 +1,6 @@
 .drop-down-hero {
     position: relative;
+    z-index: -1;
     opacity: 0;
     top: -100vh; /* Початкове положення секції (за межами екрана) */
     animation: slideDownHero 1000ms ease-out forwards; /* Застосовуємо анімацію */

@@ -278,6 +278,7 @@
     padding: 40px;
     width: 440px;
     max-height: 632px;
+    z-index: 1000;
 }
 
 .order-now-icon-x {
