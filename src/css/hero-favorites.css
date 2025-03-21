@@ -1,4 +1,21 @@
- 
+.drop-down-hero {
+    position: relative;
+    opacity: 0;
+    top: -100vh; /* Початкове положення секції (за межами екрана) */
+    animation: slideDownHero 1000ms ease-out forwards; /* Застосовуємо анімацію */
+}
+  
+.hero-img {
+    border-radius: 15px;
+    margin-bottom: 40px;
+}
+  
+@media only screen and (min-width: 768px) {
+    .hero-img {
+      margin-bottom: 64px;
+    }
+}
+  
 /* =================================кнопка для прокрутки вікна */
   
 .icon-arrow {
@@ -7,7 +24,7 @@
     bottom: 20px;
     right: 20px;
 }
-    
+
 .icon-arrow-up {
     fill: #3B302B;
     stroke: #3B302B;
